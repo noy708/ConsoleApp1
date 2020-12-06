@@ -10,13 +10,40 @@ namespace ConsoleApp1
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            A();
-            B();
-            C();
-            D();
-            E();
+            int lineCount = 10000;
+            string[] lines = Import(lineCount);
+            string text = Concat(lines);
+            Output(text);
         }
+
+        // 各行を取り込む
+        public static string[] Import(int lineCount)
+        {
+            string[] lines = new string[lineCount];
+            for (int i = 0; i < lineCount; i++)
+            {
+                lines[i] = "sample";
+            }
+            return lines;
+        }
+
+        // 各行を連結する
+        public static string Concat(string[] lines)
+        {
+            string text = "";
+            for (int i = 0; i < lines.Length; i++)
+            {
+                text += lines[i];
+            }
+            return text;
+        }
+
+        // 文章を出力する
+        public static void Output(string text)
+        {
+            Console.WriteLine(text);
+        }
+
 
         public static void A()
         {
@@ -33,7 +60,7 @@ namespace ConsoleApp1
 
             // 連結演算子を使ったサンプル
             string a = "";
-            for (int i = 0; i < 100000; i++)
+            for (int i = 0; i < 10000; i++)
             {
                 a = a + "C#";
             }
@@ -42,7 +69,7 @@ namespace ConsoleApp1
             /*
             // StringBuilderを使ったサンプル
             StringBuilder b = new StringBuilder();
-            for (int i = 0; i < 100000; i++)
+            for (int i = 0; i < 10000; i++)
             {
                 b.Append("C#");
             }
